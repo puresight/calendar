@@ -137,7 +137,7 @@ export function MonthView({ cursor, selectedDate, onSelectDate, onOpenEvent, onC
                     ? 'bg-indigo-600 text-white dark:bg-indigo-500'
                     : isCurrentMonth(d)
                       ? 'text-slate-700 dark:text-slate-200'
-                      : 'text-slate-400 dark:text-slate-600'
+                      : 'text-slate-400 dark:text-slate-400'
                 }`}
               >
                 {d.getDate()}
@@ -147,7 +147,7 @@ export function MonthView({ cursor, selectedDate, onSelectDate, onOpenEvent, onC
                   <EventChip key={ev.id} ev={ev} category={catById.get(ev.categoryId)} onClick={() => onOpenEvent(ev)} compact />
                 ))}
                 {dayEvents.length > 2 && (
-                  <span className="px-1 text-[10px] font-medium text-slate-400 dark:text-slate-500">
+                  <span className="px-1 text-[10px] font-medium text-slate-400 dark:text-slate-400">
                     +{dayEvents.length - 2} more
                   </span>
                 )}
@@ -219,7 +219,7 @@ function DayHeaders({ days }: { days: Date[] }) {
                 days.length === 1 ? '' : 'first:border-l-0'
               }`}
             >
-              <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-500">
+              <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-400">
                 {WEEKDAY_MED[d.getDay()]}
               </p>
               <span
@@ -364,7 +364,7 @@ function TimeGrid({
             {HOURS.map((h) => (
               <div key={h} style={{ height: HOUR_HEIGHT }} className="relative">
                 {h > 0 && (
-                  <span className="absolute -top-1.5 right-2 text-[10px] font-medium text-slate-400 dark:text-slate-500">
+                  <span className="absolute -top-1.5 right-2 text-[10px] font-medium text-slate-400 dark:text-slate-400">
                     {formatHourLabel(h)}
                   </span>
                 )}
@@ -412,7 +412,7 @@ function TimeGrid({
                             borderLeftColor: color,
                             backgroundColor: tint(color, 0.15),
                           }}
-                          className="absolute z-10 m-[1px] overflow-hidden rounded-md border-l-4 px-1.5 py-0.5 text-left shadow-sm transition-shadow hover:z-20 hover:shadow-md"
+                          className="absolute z-10 m-[1px] overflow-hidden rounded-md border-l-4 px-1.5 py-0.5 text-left shadow-glow-sm transition-shadow hover:z-20 hover:shadow-glow"
                         >
                           <p className="flex items-center gap-1 truncate text-[11px] font-semibold leading-tight text-slate-800 dark:text-slate-100">
                             <span className="truncate">{ev.title}</span>
@@ -443,8 +443,8 @@ function TimeGrid({
                 style={{ top: nowTop }}
                 aria-hidden
               >
-                <div className="relative border-t-2 border-red-500">
-                  <span className="absolute -left-[5px] -top-[6px] h-2.5 w-2.5 rounded-full bg-red-500 shadow" />
+                <div className="relative border-t-2 border-attention-500">
+                  <span className="absolute -left-[5px] -top-[6px] h-2.5 w-2.5 rounded-full bg-attention-500 shadow-glow-sm" />
                 </div>
               </div>
             )}
@@ -510,7 +510,7 @@ export function AgendaView({ cursor, onOpenEvent }: Pick<ViewProps, 'cursor' | '
     return (
       <div className="flex h-64 flex-col items-center justify-center text-center">
         <p className="text-sm font-medium text-slate-500 dark:text-slate-400">No events this month</p>
-        <p className="mt-1 text-xs text-slate-400 dark:text-slate-500">Tap + to plan something.</p>
+        <p className="mt-1 text-xs text-slate-400 dark:text-slate-400">Tap + to plan something.</p>
       </div>
     );
   }
@@ -523,7 +523,7 @@ export function AgendaView({ cursor, onOpenEvent }: Pick<ViewProps, 'cursor' | '
         return (
           <div key={key} className="flex gap-3 px-3 py-3 sm:px-4">
             <div className="w-12 shrink-0 text-center">
-              <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-500">
+              <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-400">
                 {WEEKDAY_MED[date.getDay()]}
               </p>
               <span
@@ -549,7 +549,7 @@ export function AgendaView({ cursor, onOpenEvent }: Pick<ViewProps, 'cursor' | '
                       <p className="flex items-center gap-1.5 truncate text-sm font-semibold text-slate-900 dark:text-white">
                         <span className="truncate">{ev.title}</span>
                         {ev.recurrence !== 'none' && !ev.id.startsWith('bday__') && (
-                          <Repeat className="h-3.5 w-3.5 shrink-0 text-slate-400 dark:text-slate-500" />
+                          <Repeat className="h-3.5 w-3.5 shrink-0 text-slate-400 dark:text-slate-400" />
                         )}
                       </p>
                       <p className="truncate text-xs text-slate-500 dark:text-slate-400">

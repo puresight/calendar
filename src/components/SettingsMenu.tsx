@@ -104,7 +104,7 @@ export function SettingsMenu({ onClose }: { onClose: () => void }) {
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center sm:items-center" role="dialog" aria-modal="true">
       <button type="button" aria-label="Close" onClick={onClose} className="absolute inset-0 bg-slate-950/40 backdrop-blur-sm" />
-      <div className="relative z-10 w-full max-w-sm rounded-t-3xl bg-white p-5 shadow-2xl sm:rounded-3xl dark:bg-slate-900">
+      <div className="relative z-10 w-full max-w-sm rounded-t-3xl bg-white p-5 shadow-glow-lg sm:rounded-3xl dark:bg-slate-900">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-lg font-bold text-slate-900 dark:text-white">Settings</h2>
           <button

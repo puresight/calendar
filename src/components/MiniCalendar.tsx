@@ -66,7 +66,7 @@ export function MiniCalendar({
       </div>
       <div className="grid grid-cols-7 gap-y-0.5">
         {WEEKDAY_SHORT.map((w, i) => (
-          <div key={i} className="py-1 text-center text-[10px] font-semibold text-slate-400 dark:text-slate-500">
+          <div key={i} className="py-1 text-center text-[10px] font-semibold text-slate-400 dark:text-slate-400">
             {w}
           </div>
         ))}
@@ -87,7 +87,7 @@ export function MiniCalendar({
                     ? 'bg-indigo-100 text-indigo-700 ring-1 ring-indigo-400 dark:bg-indigo-950/50 dark:text-indigo-300'
                     : inMonth
                       ? 'text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
-                      : 'text-slate-300 hover:bg-slate-50 dark:text-slate-600 dark:hover:bg-slate-800/50'
+                      : 'text-slate-300 hover:bg-slate-50 dark:text-slate-400 dark:hover:bg-slate-800/50'
               }`}
             >
               {d.getDate()}

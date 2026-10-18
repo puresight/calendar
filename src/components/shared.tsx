@@ -114,7 +114,7 @@ export function ViewSwitcher({
 export function RecurrenceBadge({ className = '' }: { className?: string }) {
   return (
     <Repeat
-      className={`h-3 w-3 shrink-0 text-slate-400 dark:text-slate-500 ${className}`}
+      className={`h-3 w-3 shrink-0 text-slate-400 dark:text-slate-400 ${className}`}
       aria-label="Repeating event"
     />
   );
@@ -125,8 +125,8 @@ export function LinkedTaskChip({ taskId }: { taskId: string }) {
   return (
     <div className="flex items-start gap-3 rounded-xl bg-slate-50 p-3 dark:bg-slate-800/60">
       <div className="min-w-0">
-        <p className="text-xs font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-500">Linked Task</p>
-        <span className="mt-1 inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-2.5 py-1 text-xs font-semibold text-amber-700 dark:bg-amber-950/50 dark:text-amber-300">
+        <p className="text-xs font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-400">Linked Task</p>
+        <span className="mt-1 inline-flex items-center gap-1.5 rounded-full bg-momentum-100 px-2.5 py-1 text-xs font-semibold text-momentum-800 dark:bg-momentum-950/60 dark:text-momentum-300">
           <Link2 className="h-3 w-3" />
           Task · {taskId.slice(0, 12)}
         </span>
@@ -161,7 +161,7 @@ export function EventDetailSheet({
         onClick={onClose}
         className="absolute inset-0 bg-slate-950/40 backdrop-blur-sm"
       />
-      <div className="relative z-10 w-full max-w-md rounded-t-3xl bg-white p-6 shadow-2xl sm:rounded-3xl dark:bg-slate-900">
+      <div className="relative z-10 w-full max-w-md rounded-t-3xl bg-white p-6 shadow-glow-lg sm:rounded-3xl dark:bg-slate-900">
         <div className="mb-4 flex items-start justify-between gap-3">
           <div className="min-w-0">
             <div className="flex items-center gap-2">
@@ -205,7 +205,7 @@ export function EventDetailSheet({
           {ev.location && (
             <div className="flex items-start gap-3 rounded-xl bg-slate-50 p-3 dark:bg-slate-800/60">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-500">Location</p>
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-400">Location</p>
                 <p className="mt-0.5 text-slate-900 dark:text-white">{ev.location}</p>
               </div>
             </div>
@@ -213,7 +213,7 @@ export function EventDetailSheet({
           {ev.description && (
             <div className="flex items-start gap-3 rounded-xl bg-slate-50 p-3 dark:bg-slate-800/60">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-500">Notes</p>
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-400">Notes</p>
                 <p className="mt-0.5 whitespace-pre-wrap text-slate-900 dark:text-white">{ev.description}</p>
               </div>
             </div>
@@ -227,7 +227,7 @@ export function EventDetailSheet({
                 {contactAvatar(contact.name).initials}
               </span>
               <div className="min-w-0 flex-1">
-                <p className="text-xs font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-500">Linked Contact</p>
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-400">Linked Contact</p>
                 <p className="truncate font-medium text-slate-900 dark:text-white">{contact.name}</p>
               </div>
               <button
@@ -246,7 +246,7 @@ export function EventDetailSheet({
           <button
             type="button"
             onClick={onDelete}
-            className="flex h-12 min-w-[80px] items-center justify-center gap-2 rounded-full border border-red-200 px-4 text-sm font-semibold text-red-600 transition-colors hover:bg-red-50 dark:border-red-900/50 dark:text-red-400 dark:hover:bg-red-950/40"
+            className="flex h-12 min-w-[80px] items-center justify-center gap-2 rounded-full border border-attention-200 px-4 text-sm font-semibold text-attention-700 transition-colors hover:bg-attention-50/60 dark:border-attention-800 dark:text-attention-300 dark:hover:bg-attention-950/40"
           >
             Delete
           </button>

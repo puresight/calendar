@@ -117,7 +117,7 @@ export default function App() {
     return (
       <div className="flex min-h-screen items-center justify-center bg-slate-50 dark:bg-slate-950">
         <div className="flex flex-col items-center gap-3">
-          <div className="h-8 w-8 animate-spin rounded-full border-2 border-indigo-200 border-t-indigo-600" />
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-momentum-200 border-t-momentum-500" />
           <p className="text-sm text-slate-400">Loading your calendar…</p>
         </div>
       </div>
@@ -258,7 +258,7 @@ export default function App() {
         )}
 
         {/* Main pane */}
-        <main className="flex min-w-0 flex-1 flex-col overflow-hidden bg-white md:m-3 md:rounded-3xl md:border md:border-slate-200 md:shadow-sm dark:border-slate-800">
+        <main className="flex min-w-0 flex-1 flex-col overflow-hidden bg-white md:m-3 md:rounded-3xl md:border md:border-slate-200 md:shadow-glow-sm dark:border-slate-800">
           <div className="min-h-0 flex-1 overflow-hidden">
             {view === 'month' && <MonthView {...viewProps} />}
             {view === 'week' && <WeekView {...viewProps} />}
@@ -272,7 +272,7 @@ export default function App() {
       <button
         type="button"
         onClick={() => openCreate(selectedDate)}
-        className="fixed bottom-20 right-4 z-30 flex h-14 w-14 items-center justify-center rounded-full bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 transition-transform active:scale-95 sm:hidden dark:bg-indigo-500"
+        className="fixed bottom-20 right-4 z-30 flex h-14 w-14 items-center justify-center rounded-full bg-indigo-600 text-white shadow-glow-fab transition-transform active:scale-95 sm:hidden dark:bg-indigo-500"
         aria-label="New event"
       >
         <Plus className="h-6 w-6" />
@@ -289,7 +289,7 @@ export default function App() {
               type="button"
               onClick={() => setView(id)}
               className={`flex min-h-[52px] min-w-[44px] flex-1 flex-col items-center justify-center gap-0.5 text-[10px] font-semibold transition-colors ${
-                active ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-400 dark:text-slate-500'
+                active ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-400 dark:text-slate-400'
               }`}
             >
               <Icon className="h-5 w-5" />

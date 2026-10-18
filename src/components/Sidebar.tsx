@@ -106,7 +106,7 @@ export function CategoryEditorModal({
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center sm:items-center" role="dialog" aria-modal="true">
       <button type="button" aria-label="Close" onClick={onClose} className="absolute inset-0 bg-slate-950/40 backdrop-blur-sm" />
-      <div className="relative z-10 w-full max-w-sm rounded-t-3xl bg-white p-5 shadow-2xl sm:rounded-3xl dark:bg-slate-900">
+      <div className="relative z-10 w-full max-w-sm rounded-t-3xl bg-white p-5 shadow-glow-lg sm:rounded-3xl dark:bg-slate-900">
         <h2 className="text-lg font-bold text-slate-900 dark:text-white">
           {isNew ? 'New category' : 'Edit category'}
         </h2>
@@ -136,7 +136,7 @@ export function CategoryEditorModal({
               ))}
             </div>
           </div>
-          {error && <p className="text-sm font-medium text-red-600 dark:text-red-400">{error}</p>}
+          {error && <p className="text-sm font-medium text-attention-700 dark:text-attention-300">{error}</p>}
         </div>
 
         <div className="mt-5 flex items-center gap-2">
@@ -188,7 +188,7 @@ export function CategoryPanel({
   return (
     <div className="flex flex-col">
       <div className={`mb-2 flex items-center justify-between ${compact ? '' : 'px-0'}`}>
-        <h2 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Categories</h2>
+        <h2 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-400">Categories</h2>
         {onDone && (
           <button
             type="button"
@@ -206,7 +206,7 @@ export function CategoryPanel({
           <CategoryRow key={c.id} cat={c} onEdit={onEditCategory} />
         ))}
         {categories.length === 0 && (
-          <p className="px-2 py-3 text-xs text-slate-400 dark:text-slate-500">
+          <p className="px-2 py-3 text-xs text-slate-400 dark:text-slate-400">
             No categories yet. Add one to start organizing.
           </p>
         )}

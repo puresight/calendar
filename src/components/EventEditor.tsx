@@ -119,7 +119,7 @@ function ContactPicker({
             className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
           />
           {matches.length > 0 && query.trim() !== '' && (
-            <div className="absolute z-10 mt-1 w-full overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg dark:border-slate-700 dark:bg-slate-800">
+            <div className="absolute z-10 mt-1 w-full overflow-hidden rounded-xl border border-slate-200 bg-white shadow-glow dark:border-slate-700 dark:bg-slate-800">
               {matches.map((c) => (
                 <button
                   key={c.id}
@@ -144,7 +144,7 @@ function ContactPicker({
         </div>
       )}
       {contacts.length === 0 && (
-        <p className="mt-1 text-xs text-slate-400 dark:text-slate-500">No contacts available.</p>
+        <p className="mt-1 text-xs text-slate-400 dark:text-slate-400">No contacts available.</p>
       )}
     </div>
   );
@@ -223,7 +223,7 @@ export function EventEditor({
       <button type="button" aria-label="Close" onClick={onClose} className="absolute inset-0 bg-slate-950/40 backdrop-blur-sm" />
       <form
         onSubmit={handleSubmit}
-        className="relative z-10 flex max-h-[92vh] w-full max-w-md flex-col overflow-hidden rounded-t-3xl bg-white shadow-2xl sm:rounded-3xl dark:bg-slate-900"
+        className="relative z-10 flex max-h-[92vh] w-full max-w-md flex-col overflow-hidden rounded-t-3xl bg-white shadow-glow-lg sm:rounded-3xl dark:bg-slate-900"
       >
         <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4 dark:border-slate-800">
           <h2 className="text-lg font-bold text-slate-900 dark:text-white">{form.id ? 'Edit event' : 'New event'}</h2>
@@ -395,7 +395,7 @@ export function EventEditor({
           </div>
 
           {error && (
-            <p className="rounded-xl bg-red-50 px-3 py-2 text-sm font-medium text-red-600 dark:bg-red-950/40 dark:text-red-400" role="alert">
+            <p className="rounded-xl bg-attention-50/60 px-3 py-2 text-sm font-medium text-attention-800 dark:bg-attention-950/50 dark:text-attention-300" role="alert">
               {error}
             </p>
           )}
