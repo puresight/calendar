@@ -1,10 +1,11 @@
 import { useRef, useState } from 'react';
 import { useLiveQuery } from 'dexie-react-hooks';
-import { Download, Upload, Cake } from 'lucide-react';
+import { Download, Upload, Cake, Smartphone } from 'lucide-react';
 import { db, type CalendarEvent } from '@/db/calendar';
 import { buildIcs, downloadText, parseIcs } from '@/lib/ics';
 import { useBooleanSetting, SHOW_BIRTHDAYS_KEY } from '@/lib/settings';
 import { useContacts } from '@/lib/contacts';
+import { useInstallPrompt } from '@/lib/install';
 
 function Toggle({
   checked,
@@ -53,6 +54,7 @@ export function SettingsMenu({ onClose }: { onClose: () => void }) {
   const [showBirthdays, setShowBirthdays] = useBooleanSetting(SHOW_BIRTHDAYS_KEY, true);
   const contacts = useContacts();
   const categories = useLiveQuery(() => db.categories.where('isDeleted').equals(0).toArray(), []) ?? [];
+  const { canInstall, install } = useInstallPrompt();
 
   const exportIcs = async () => {
     const events = await db.events.where('isDeleted').equals(0).toArray();
@@ -147,6 +149,20 @@ export function SettingsMenu({ onClose }: { onClose: () => void }) {
               <span className="block text-xs text-slate-500 dark:text-slate-400">Add events from a calendar file</span>
             </span>
           </button>
+
+          {canInstall && (
+            <button
+              type="button"
+              onClick={() => install()}
+              className="flex w-full min-h-[52px] items-center gap-3 rounded-2xl bg-indigo-50 px-4 py-3 text-left transition-colors hover:bg-indigo-100 dark:bg-indigo-950/40 dark:hover:bg-indigo-900/40"
+            >
+              <Smartphone className="h-5 w-5 shrink-0 text-indigo-600 dark:text-indigo-400" />
+              <span className="min-w-0 flex-1">
+                <span className="block text-sm font-semibold text-indigo-700 dark:text-indigo-300">Install app</span>
+                <span className="block text-xs text-indigo-500/80 dark:text-indigo-400/80">Add to your home screen for a full-screen, offline experience</span>
+              </span>
+            </button>
+          )}
           <input
             ref={fileRef}
             type="file"
